@@ -10,8 +10,19 @@ $(document).ready(function() {
  */
 function initializePage() {
 	$('.likeBtn').click( function() {
+    ga('send', {
+      'hitType': 'event',
+      'eventCategory': 'like',
+      'eventAction': 'click',
+    });
+
     var timeSincePageLoad = Math.round(performance.now());
     console.log("Used clicked like after " + timeSincePageLoad + " milliseconds!");
-    ga('send', 'timing', 'like', 'click', timeSincePageLoad);
+    ga('send', {
+      'hitType': 'timing',
+      'timingCategory': 'click',
+      'timingVar': 'likeButtonClick',
+      'timingValue': timeSincePageLoad
+    });
   });
 }
