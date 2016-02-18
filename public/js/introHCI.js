@@ -11,5 +11,9 @@ $(document).ready(function() {
 function initializePage() {
 	$('.likeBtn').click( function() {
     ga('send', 'event', 'like', 'click');
+
+    var timeSincePageLoad = Math.round(performance.now());
+    console.log("Used clicked like after " + timeSincePageLoad + " milliseconds!");
+    ga('send', 'timing', 'JS Dependencies', 'load', timeSincePageLoad);
   });
 }
